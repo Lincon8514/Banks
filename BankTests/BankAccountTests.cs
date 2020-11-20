@@ -63,6 +63,22 @@ namespace BankTests
             Assert.Fail("The expected exception was not thrown.");
 
         }
+        /// <summary>
+        /// Valor do crédito somado
+        /// </summary>
+        [TestMethod]
+        public void Credit_DepositoValidoEValorAdicionado() {
+            //Arrange
+            double Saldo = 100;
+            double deposito = 20;
+            double expected = 120;
+            BankAccount account = new BankAccount("Lincon", Saldo);
+            //Act
+            account.Credit(deposito);
+            //Assert
+            double actual = account.Balance;
+            Assert.AreEqual(expected, actual, "Valor do Deposito adicionado");
+        }
 
         /// <summary>
         /// Deposito de valor > 0

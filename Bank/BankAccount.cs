@@ -13,6 +13,9 @@ namespace Bank
         public const string DebitAmountExceedsBalanceMessage = "Debit amount exceeds balance";
         public const string DebitAmountLessThanZeroMessage = "Debit amount is less than zero";
 
+      //  public const string CreditAmountExceedsBalanceMessage = "Valor do Débito inválido";
+       // public const string CreditAmountLessThanZeroMessage = "Valor do débito somado";
+
         //metodos construtores
         public BankAccount() { }
 
@@ -48,6 +51,9 @@ namespace Bank
 
         public void Credit(double amount) {
             if (amount <= 0) {
+                throw new ArgumentOutOfRangeException("amount");
+            }
+            if (amount > 0 ) {
                 throw new ArgumentOutOfRangeException("amount");
             }
             m_balance += amount;
